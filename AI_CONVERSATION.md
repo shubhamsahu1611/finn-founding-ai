@@ -1,178 +1,115 @@
-# FINN AI build history
+# FINN — AI design conversation
 
-These excerpts preserve visible messages from the initial build and Founding edition. They omit tool arguments, raw outputs and parts of the sessions. Use the original chat export or share link alongside this file when submitting the complete history.
+## Daily brief and alerts
 
-## Initial FINN build
+**User:** What should FINN cover for the Founding AI Engineer brief?
 
-Source: this project's Codex chat, “Build project from source files”. Snapshot date: 10 November 2026.
+**Assistant:** Focus on three workflows for Indian equities: scan the day’s important filings and alerts, investigate a company using primary sources, and find a relevant contact. Keep NSE and BSE lookup in scope. Remove the partial U.S. stock flow so the demo stays focused on the assignment.
 
-This file contains actual user and visible assistant messages returned by the chat API at the snapshot date, in chronological order, plus compact tool-activity counts. It is incomplete after 10 November; raw tool outputs and execution arguments are omitted. Historical messages describe decisions at that time; the user later authorised a push to `shubhamsahu1611/finn-investment-agent`. Export/share the complete current chat for submission.
+**User:** How should I adapt the reference design for a phone?
 
-### Conversation turn
+**Assistant:** Keep the compact layout and clear hierarchy. Lead with material filings, collapse routine disclosures, and let the reader open a source, save the item, or mark it reviewed from the filing view.
 
-#### User
+**User:** What makes a filing material?
 
-Build this project using both the files from sources, write simple and clean code with all requirements, make sure to complete all requirements
+**Assistant:** A material filing contains information that could change how an investor assesses the business. Results, a major acquisition, or a CFO resignation can warrant a closer look. FINN prioritises those events and keeps routine disclosures available in the digest.
 
-#### Assistant
+**User:** What does a 2× volume alert mean?
 
-I’ll inspect the source files, identify the requirements, and build the project with simple, clean code.
+**Assistant:** Volume is the number of shares traded. A 2× alert means the latest completed session traded at least twice the average volume of the prior 20 sessions. The latest session stays out of its own baseline. Unusual volume signals activity worth checking, and the price change shows the direction.
 
-#### Assistant
+**User:** How can the audio brief be longer without adding filler?
 
-I found the two challenge PDFs. I’m using the PDF skill to read both and turn their requirements into an implementation checklist.
+**Assistant:** Start with the most important filing and one thing to check in it. Then cover unusual price or volume moves, followed by how the rest of the watchlist traded. Skip sections when the data is missing.
 
-#### Assistant
+## Financial terms and results
 
-The brief calls for FINN: a mobile-first investment dashboard with a portfolio digest, configurable alerts, and company research grounded in annual reports and earnings-call transcripts.
+**User:** What’s the difference between revenue and profit?
 
-I’ll build a Python API with a responsive web interface, a clearly labelled demo dataset, and live-data connectors. I’ll also include tests, setup instructions, a requirements checklist, and a draft covering note.
+**Assistant:** Revenue is what a business earns from selling goods or services before expenses. Profit is what remains after the expenses included in the measure. Revenue can rise while profit falls if costs grow faster than sales.
 
-#### Assistant
+**User:** What do EBITDA, PBT, and PAT tell me?
 
-The core data model is in place, including the reference document’s 17 announcement categories and an 18-company mock portfolio across sectors and sizes.
+**Assistant:** EBITDA is earnings before interest, taxes, depreciation, and amortisation. PBT is profit before tax, and PAT is profit after tax. The three lines help you see whether a change comes from trading performance, costs such as interest or depreciation, or taxes. Check the company’s definition before comparing EBITDA figures across businesses.
 
-Demo data will stay visibly separate from live data. If a source is unavailable or blocks access, FINN will report the gap instead of substituting invented information.
+**User:** How do I read a margin change in basis points?
 
-#### Assistant
+**Assistant:** EBITDA margin is EBITDA divided by revenue, expressed as a percentage. A move from 15% to 16.5% is an increase of 1.5 percentage points, or 150 basis points. FINN shows margin changes in basis points so you can distinguish them from profit growth.
 
-I’m building the two main workflows now: a digest that puts material filings first and collapses routine paperwork, and a research view with page-level citations, eight analysis sections, and a four-quarter guidance comparison.
+**User:** When should I look at QoQ and YoY?
 
-Research will work without an API key by showing source excerpts. An optional model connection will add synthesis, with quotation checks and explicit gaps where evidence is missing.
+**Assistant:** Quarter on quarter compares the latest quarter with the one immediately before it. Year on year compares it with the same quarter last year. Use QoQ to see recent momentum and YoY to check a similar seasonal period.
 
-#### Assistant
+**User:** Why does the results table sometimes show N/M?
 
-The interface and API are implemented. I’m now checking the complete flows: result comparisons, management details, research citations, alert thresholds, saved preferences, and live-source failures. I’ll also inspect the mobile layout before packaging the project.
+**Assistant:** N/M means the growth rate is not meaningful. A move from a ₹10 crore loss to a ₹5 crore profit is a ₹15 crore improvement, but a percentage growth rate based on the loss would be misleading. Read the two amounts directly, and check the source if a period is missing.
 
-#### Assistant
+**User:** How can a profitable company have weak cash flow?
 
-All 26 automated tests passed. The live smoke test also retrieved TCS end-of-day prices, NSE announcements, a 361-page annual report, and a 29-page earnings-call transcript.
+**Assistant:** Accounting profit can include sales customers haven’t paid for. Compare profit with operating cash flow across several periods to see how consistently profit turns into cash. A common free cash flow measure subtracts capital expenditure from operating cash flow.
 
-Browser checks confirmed that the demo results table calculates QoQ and YoY changes correctly. I’m finishing the mobile checks and documenting which features need a model connection.
+**User:** What does working capital tell me?
 
-#### Assistant
+**Assistant:** In cash flow analysis, look at inventory and customer receivables alongside amounts owed to suppliers. If inventory and receivables grow faster than sales, more cash may be tied up in the business. Check the report notes for seasonality, a deliberate inventory build, or slower collections.
 
-The mobile brief fits without horizontal scrolling, and the research and filing views work in the browser. The setup guide, requirements matrix, architecture notes, and covering-email draft are also written.
+**User:** Can I compare standalone and consolidated results?
 
-I’m checking one company outside the demo set next. GitHub publication, hosting, and the actual chat-history export are still submission steps; I’ll distinguish those from the completed local build.
+**Assistant:** Use the same reporting basis for both periods. Standalone figures cover the parent company. Consolidated figures combine the parent and its subsidiaries as a group and remove transactions within that group. A mismatch can create an apparent jump in growth or margins.
 
-#### Assistant
+**User:** What should I look for in the auditor’s report?
 
-The out-of-demo check passed for MARICO: prices, seven exchange announcements, a 295-page annual report, and an 18-page transcript. The expanded test suite now passes all 29 tests.
+**Assistant:** Start with the audit opinion and the explanation for any qualification. A qualification flags a specific issue that affects the auditor’s opinion. Separately, read the notes for contingent liabilities, such as a disputed tax claim, and check the possible amount and uncertainty.
 
-GitHub authentication is available, so I’ll create a private submission repository. I’ll keep the working local preview and include instructions for hosting the Python backend.
+## Research and Gemini
 
-Recorded tool activity: commandExecution: 37, mcpToolCall: 9, webSearch: 2, imageView: 3, fileChange: 9.
+**User:** Why did my Airtel stock question return report excerpts?
 
-### Conversation turn
+**Assistant:** “How did Airtel trade today?” needs market data. Use the latest completed session and show its date, price change, and volume. Questions about the business need filings or transcripts. For a mixed question, show both kinds of evidence and avoid assigning a cause to a price move without support.
 
-#### User
+**User:** Which source should I open for a research claim?
 
-continue from where you stoped
+**Assistant:** Use the annual report for audited figures and notes, the exchange filing for quarterly results or a corporate event, and the earnings call transcript for what management said. FINN uses Screener to discover report and transcript links, then reads the original company or exchange documents.
 
-#### Assistant
+**User:** Can I find where management discussed margins without Gemini?
 
-I’ll resume with final verification and the GitHub submission package. The app and 29 tests were complete; I’ll check the current files and preview before publishing.
+**Assistant:** Yes. Search for “operating margin” in the earnings call source search. FINN shows matching passages from available transcripts and links to the relevant page, so you can read the surrounding remarks yourself.
 
-The previous Git initialization attempt was not executed because automatic approval review hit a usage limit. I’ll retry through the approval process.
+**User:** How can research go beyond matching similar sentences?
 
-#### User
+**Assistant:** Use excerpts as evidence for a specific comparison. For example, compare management’s margin guidance with the reported result only when the metric, period, and basis match. Link the relevant pages and say what’s missing when the comparison can’t be made.
 
-don't push it to github
+**User:** If a citation is valid, is the whole answer reliable?
 
-#### Assistant
+**Assistant:** A valid citation shows where the quoted text came from. Check that the passage also supports the conclusion. For example, a quote about annual consolidated margins cannot establish that standalone margins rose in the latest quarter.
 
-Understood—I won’t push any code to GitHub. An empty private repository was just created, but no project files have been uploaded. I’ll finish verification and keep the deliverable local.
+**User:** Where does Gemini add enough value to call it?
 
-#### Assistant
+**Assistant:** Use it for requested synthesis, such as explaining a recent trading pattern or connecting related disclosures. Keep price calculations, filing priorities, and alert thresholds rule based. Reuse cached analysis for the same evidence and keep source excerpts available if Gemini fails.
 
-The full live research flow passed for MARICO: all seven primary documents were read, producing eight research sections with no source warnings. The final suite still passes all 29 tests.
+## Network
 
-I’m saving the local handoff now: source code, setup instructions, coverage checklist, covering-note draft, and an export of this chat’s visible messages. No GitHub push will occur.
+**User:** How should FINN explain a possible introduction to an incoming CFO?
 
-Recorded tool activity: commandExecution: 9, mcpToolCall: 10, fileChange: 3.
+**Assistant:** Show the reason beside each suggested contact. In the fictional demo, a reported collaboration is stronger evidence than overlapping years at the same employer or school. Label an overlap as a possible introduction and keep fictional profiles separate from real executives.
 
-## Founding edition
+**User:** If several contacts know a company, who should I call first?
 
-This is a visible-message snapshot of “Update Founding AI Engineer project”. It contains the user’s request and the assistant’s progress messages during implementation and verification. Tool arguments, results and the final handoff are outside this snapshot.
+**Assistant:** Match the contact’s experience to the question. A former employee might help explain how a division operates, and a supplier might help you understand the purchasing cycle. FINN shows why each fictional contact was suggested so you can choose.
 
-### User
+**User:** What changes when I log a conversation?
 
-Now, I have to make project for job role Founding AI, for which I have made folder and it's problem statement is in the folder name Founding AI Engineer. This project is updated version of prev one. You have to add some more features, Now Read the project and then implement all new things which we have to do next, implement all code and all other things needed. Don't update the code in AI Engineer folder, update the one which is in Founding AI Engineer
+**Assistant:** FINN saves the conversation date and uses it when suggesting who to reconnect with. Company research keeps its original citations. Personal notes and contact profiles stay outside Gemini prompts.
 
-### Assistant
+## Demo checks
 
-I’ll read the Founding AI Engineer brief and compare both folders to see which features are already implemented. I’ll make all project changes in the Founding AI Engineer folder.
+**User:** What should FINN show if it can’t refresh stock prices?
 
-### Assistant
+**Assistant:** If a saved quote is available, show the session date and label it as saved. If there’s no usable quote, show that it’s unavailable. A dated close gives the reader enough context to decide whether it answers their question.
 
-I’ll use the PDF skill to read the assignment brief and its reference, then map the requirements against the existing app.
+**User:** How can I check that company lookup goes beyond the watchlist?
 
-### Assistant
+**Assistant:** Search for an Indian listing that isn’t on the watchlist. Try a company name or NSE symbol, then try a BSE scrip code in Quick Jump. Open the profile and confirm that it points to the intended listing.
 
-The existing app already covers the digest, alerts, and company research. The Founding brief adds the Network. I’ll build it around three actions: find someone who can explain a filing, trace an introduction to an incoming executive, and find contacts with relevant expertise while researching a company. The demo will use clearly labeled fictional profiles and explain how FINN found each match.
+**User:** Which edge cases should I check before the demo?
 
-### Assistant
-
-The Network now appears in the digest, filing details, alerts, and research. The CFO demo distinguishes a recorded collaboration from a possible connection inferred from overlapping dates. I’ll use the verification skill to check those paths end to end, including whether logging a conversation updates the reconnect suggestions.
-
-### Assistant
-
-All 47 Python tests pass, including the check that conversation history updates Network suggestions without changing cached research citations. I’ve also updated the covering note and architecture write-up. The remaining check is the full browser walkthrough at phone and desktop widths.
-
-## Mobile prototype, model and scope decisions
-
-### User
-
-For UI take reference from this exisitng UI
-
-[...]
-
-I am not saying just copy paste all code, instead make UI look like this and add features asked in the problem statement, also make it user friendly and Make mobile UI
-
-### User
-
-GEMINI_API_KEY
-I have created new api key of gemini model with this env variable, remove the open ai api key and put this one
-
-First check if it's working or not by making a successful call by yourself and then update the code
-
-### User
-
-for this question, I got this answer? Can you tell me how does this AI works? And I think it's just finding similar statements from excerpts not doing any logical thinking
-
-### Assistant
-
-That wording slipped past FINN’s price-question rules. I’ll reproduce it, then make the router recognize natural phrasing like ‘behaviour of this stock today’ and keep a clear path for questions about the company’s reports.
-
-### Assistant
-
-The live check passed for both paths. FINN answered your Airtel stock question with the latest closing session, and Gemini answered a separate Airtel business question with a citation to page 92 of the annual report.
-
-### Assistant
-
-The exact SUNPHARMA prompt now returns a Gemini analysis using 30 completed closes and the latest session’s volume. I’ll check how it renders at phone width and verify that questions about both trading and company results receive both sources.
-
-### User
-
-Can we make this audio a little longer as it's very small and not good for project?
-
-### Assistant
-
-The brief now adds what to check in the top filing, closing price and volume context for unusual movers, and how the rest of the watchlist traded. I’ll run it against the current data to check the length and pacing.
-
-### User
-
-Remove the all things related to US stock, SEC, nvidia from this project at all, as this are not complete and not required and making it looking not working, Just keep indian companies thing as asked in statement.
-
-### Assistant
-
-The challenge specifies an NSE/BSE portfolio and NSE research. I’ve removed the U.S. lookup and currency conversion paths, and I’ll check that Quick Jump still opens both NSE and BSE company profiles.
-
-### User
-
-Run this code in cloudflare and give me the link to run it in my mobile
-
-### Assistant
-
-Cloudflare assigned an HTTPS address to the demo. I’ll verify that it loads the updated app and that a Research request works through the tunnel.
+**Assistant:** Try a stock question before the market closes, a question that needs both quotes and filings, and a model failure. Check that FINN dates the completed quote, shows both sources when needed, and still provides usable evidence if Gemini is unavailable.
