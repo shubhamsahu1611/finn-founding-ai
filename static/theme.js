@@ -10,6 +10,4 @@ try {
 } catch {
   // A browser can disable local storage.
 }
-applyTheme(["light", "dark"].includes(initialTheme)
-  ? initialTheme
-  : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+applyTheme(initialTheme === "light" ? "light" : "dark");
