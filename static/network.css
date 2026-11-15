@@ -1,0 +1,227 @@
+.network-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-bottom: 12px;
+}
+.network-heading h2,
+.network-heading h3 {
+  margin: 0;
+}
+.network-badge {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  font-weight: 650;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.network-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+.network-form .field {
+  margin: 0;
+}
+.network-form input {
+  width: 100%;
+  min-width: 0;
+  font-size: 1rem;
+}
+.network-form button,
+.network-profile-actions button {
+  min-height: 44px;
+}
+.network-search .suggestions {
+  gap: 8px;
+}
+.network-search .chip {
+  min-height: 38px;
+  text-align: left;
+}
+.network-context {
+  margin: 14px 0;
+}
+#research-result > .network-context,
+#dialog-content > .network-context {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+  padding: clamp(12px, 3vw, 22px);
+}
+.network-hint {
+  display: grid;
+  gap: 2px;
+  background: var(--brand-soft);
+  border-radius: 8px;
+  margin: 9px 0;
+  padding: 6px 10px 9px;
+  text-align: left;
+}
+.network-hint > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 8px;
+}
+.network-hint-label {
+  font-size: 0.73rem;
+  color: var(--muted);
+}
+.network-hint small {
+  color: var(--muted);
+  line-height: 1.35;
+}
+.network-link.button {
+  background: transparent;
+  border: 0;
+  color: var(--brand);
+  padding: 4px 0;
+  min-height: 36px;
+  text-align: left;
+}
+.network-link.button:hover {
+  text-decoration: underline;
+}
+.alert-body .network-hint {
+  width: fit-content;
+}
+.network-match {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+.network-match-top {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+.network-match h4,
+.network-match p {
+  margin: 0;
+}
+.network-match-top small,
+.network-support {
+  color: var(--muted);
+}
+.network-avatar {
+  background: var(--brand-soft);
+  border-radius: 50%;
+  width: 38px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  color: var(--brand);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.network-match p.network-evidence {
+  margin: 7px 0 3px;
+}
+.network-path {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8rem;
+}
+.network-path li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--brand);
+  background: var(--brand-soft);
+  border-radius: 6px;
+  padding: 3px 7px;
+}
+.network-path li + li::before {
+  content: "→";
+}
+.network-question,
+.network-trigger {
+  background: var(--bg);
+  border-left: 2px solid var(--brand);
+  border-radius: 0 8px 8px 0;
+  margin-top: 10px;
+  padding: 8px 12px;
+}
+.network-trigger > span {
+  display: block;
+}
+.network-question p {
+  margin: 2px 0 0;
+}
+.network-profile h4,
+.network-context h4 {
+  margin: 10px 0 4px;
+}
+.network-match-top h4 {
+  margin: 0;
+}
+.network-career {
+  padding: 0;
+  margin: 0 0 14px;
+  list-style: none;
+}
+.network-career li {
+  border-top: 1px solid var(--line);
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.network-career li span {
+  display: block;
+  color: var(--muted);
+}
+.network-career time {
+  color: var(--muted);
+  white-space: nowrap;
+}
+.network-themes,
+.network-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 0;
+}
+.network-watchlist {
+  margin: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.network-watchlist summary {
+  min-height: 44px;
+  align-content: center;
+  font-weight: 650;
+}
+.network-watchlist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.network-watchlist li {
+  padding-block: 8px;
+  border-top: 1px solid var(--line);
+}
+.network-watchlist li p {
+  margin: 4px 0 0;
+}
+@media (max-width: 550px) {
+  .network-form {
+    grid-template-columns: 1fr;
+  }
+  .network-form button {
+    justify-self: start;
+  }
+  .network-link.button {
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: finn-founding-ai
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: python -m pip install -r requirements.txt
+    startCommand: python -m uvicorn finn.main:app --host 0.0.0.0 --port "$PORT" --workers 1
+    healthCheckPath: /api/health
+    envVars:
+      - key: FINN_DB
+        value: /tmp/finn.db
